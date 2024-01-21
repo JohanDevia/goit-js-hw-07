@@ -39,13 +39,12 @@ function openModal(e) {
   instance.show();
 
   //close with esc key
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      const openModal = document.querySelector(".basicLightbox");
-      if (openModal) {
-        instance.close();
-        document.removeEventListener("keydown", instance);
-      }
+  document.addEventListener("keydown", onClose);
+  function onClose(e) {
+    if (e.code !== "Escape" && basicLightbox.visible()) {
+      return;
     }
-  });
+    instance.close();
+    document.removeEventListener("keydown", onClose);
+  }
 }
