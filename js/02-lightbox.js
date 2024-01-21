@@ -27,8 +27,8 @@ galleryList.addEventListener("click", openModal);
 function openModal(e) {
   e.preventDefault();
 
-  var lightbox = new SimpleLightbox(".gallery a", {
+  new SimpleLightbox(".gallery a", {
     captionsData: "alt",
-    captionsDelay: "250ms",
+    captionDelay: "250ms",
   });
 }
